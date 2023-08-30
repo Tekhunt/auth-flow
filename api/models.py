@@ -43,10 +43,9 @@ class CustomUserManager(BaseUserManager):
 
 
 class User(AbstractBaseUser, PermissionsMixin):
-    first_name = models.CharField(
-        _("first name"), max_length=255, blank=True, null=True
+    name = models.CharField(
+        _("name"), max_length=255, blank=True, null=True
     )
-    last_name = models.CharField(_("last name"), max_length=255, blank=True, null=True)
     email = models.EmailField(_("email address"), unique=True)
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
@@ -57,4 +56,4 @@ class User(AbstractBaseUser, PermissionsMixin):
     objects = CustomUserManager()
 
     def __str__(self):
-        return f"{self.first_name} {self.last_name}"
+        return f"{self.name}"

@@ -4,12 +4,11 @@ from rest_framework_simplejwt.views import (
     TokenObtainPairView,
 )
 
-from api.views import HomeView, UserCreateAPIView, UserListAPIView, UserRetrieveUpdateDestroyAPIView
+from api.views import UserCreateAPIView, UserListAPIView, UserRetrieveUpdateDestroyAPIView
 
 
 
 urlpatterns = [
-    path('api/v1/home', HomeView.as_view(), name='home'),
     path("api/v1/usercreate/", UserCreateAPIView.as_view(), name="register"),
     path("api/v1/users/", UserListAPIView.as_view(), name="list"),
     path(

@@ -32,8 +32,7 @@ class APITests(TestCase):
         user_payload = {
             "email": "user@example.com",
             "password": "string",
-            "first_name": "string",
-            "last_name": "string",
+            "name": "string",
         }
         response = self.client.post(reverse("register"), user_payload)
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
