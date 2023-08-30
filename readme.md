@@ -1,5 +1,8 @@
 # Auth flow - Backend
 
+Visit `localhost:port/docs` to access the API documents and test the backend
+<img width="1499" alt="Screenshot 2023-08-30 at 19 43 56" src="https://github.com/Tekhunt/auth-flow/assets/65784601/3be695ef-e89c-4db4-981f-b6d97b3d7b58">
+
 Welcome to the backend repository of [Auth flow]. This part of the project is responsible for handling user authentication and API requests using Django and Django Rest Framework.
 
 ## Getting Started
