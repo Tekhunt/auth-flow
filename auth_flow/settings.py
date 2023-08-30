@@ -109,11 +109,6 @@ SPECTACULAR_SETTINGS = {
 }
 
 
-SIMPLE_JWT = {
-    'AUTH_HEADER_TYPES': ('JWT',),
-}
-
-
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
