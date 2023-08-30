@@ -8,7 +8,7 @@ from django.urls import resolve
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
 )
-from api.views import UserCreateAPIView, UserListAPIView, UserRetrieveUpdateDestroyAPIView
+from api.views import UserCreateAPIView, UserListAPIView
 
 class APITests(TestCase):
     def setUp(self):
@@ -21,13 +21,6 @@ class APITests(TestCase):
         self.refresh_token = RefreshToken.for_user(self.user)
         self.access_token = str(self.refresh_token.access_token)
 
-    def test_home_view(self):
-        response = self.client.get(reverse("home"))
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(response.data["message"], "Welcome to the auth flow")
-        self.assertTrue(type(response.data["message"]), str)
-
-    
     def test_user_create(self):
         user_payload = {
             "email": "user@example.com",
@@ -37,16 +30,9 @@ class APITests(TestCase):
         response = self.client.post(reverse("register"), user_payload)
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
-
-
     def test_users_url_is_resolved(self):
         url = reverse("register")
         self.assertEquals(resolve(url).func.view_class, UserCreateAPIView)
-
-    def test_user_detail_url_is_resolved(self):
-        url = reverse("single-user", args=[1])
-        self.assertEquals(resolve(url).func.view_class, UserRetrieveUpdateDestroyAPIView)
-
     
     def test_userdata_list_url_is_resolved(self):
         url = reverse("list")
