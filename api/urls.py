@@ -11,7 +11,7 @@ from api.views import HomeView, UserCreateAPIView, UserListAPIView, UserRetrieve
 urlpatterns = [
     path('api/v1/home', HomeView.as_view(), name='home'),
     path("api/v1/usercreate/", UserCreateAPIView.as_view(), name="register"),
-    path("api/v1/users/", UserListAPIView.as_view(), name="user-list"),
+    path("api/v1/users/", UserListAPIView.as_view(), name="list"),
     path(
         "api/v1/user/<int:pk>/",
         UserRetrieveUpdateDestroyAPIView.as_view(),
